@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026年建設現場入場基準対応・損害保険提案DM</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Roboto:wght@400;500;700;900&display=swap');
+        
+        /* === CSS変数定義 === */
+        :root {
+            --corp-blue: #3B5998;
+            --accent-red: #FF6B6B;
+            --accent-yellow: #FFD93D;
+            --accent-purple: #6C5CE7;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F9FAFB;
+            --text-primary: #2D3748;
+            --text-secondary: #718096;
+            --shadow-sm: 0 4px 16px rgba(59, 89, 152, 0.08);
+            --shadow-md: 0 8px 24px rgba(59, 89, 152, 0.12);
+            --shadow-lg: 0 12px 32px rgba(59, 89, 152, 0.16);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+        }
+
+        /* === 印刷最適化設定 === */
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f7f8fc 0%, #edf2f7 100%);
+        }
+
+        /* A4サイズページ設定（レイアウト安定化） */
+        .page {
+            width: 210mm;
+            min-height: 297mm; /* 固定heightを避けて柔軟性確保 */
+            padding: 18mm;
+            margin: 0 auto 20px;
+            background: var(--bg-primary);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            page-break-after: always;
+            page-break-inside: avoid;
+        }
+
+        /* 印刷時の設定 */
+        @media print {
+            body { 
+                background: none;
+                margin: 0;
+                padding: 0;
+            }
+            .page { 
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+                page-break-after: always;
+            }
+        }
+
+        /* === メンフィス風装飾要素 === */
+        .page::before {
+            content: '';
+            position: absolute;
+            top: -25px;
+            right: -25px;
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle, var(--accent-yellow) 2px, transparent 2px);
+            background-size: 14px 14px;
+            opacity: 0.12;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .page::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 160px;
+            height: 160px;
+            background: var(--accent-purple);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            opacity: 0.06;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .page > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* === タイポグラフィ === */
+        h1, h2, h3, h4 {
+            color: var(--corp-blue);
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-red), var(--accent-yellow));
+            border-radius: 2px;
+        }
+
+        h2 {
+            font-size: 19px;
+            margin: 25px 0 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: '';
+            width: 6px;
+            height: 26px;
+            background: var(--accent-red);
+            border-radius: 3px;
+            margin-right: 12px;
+            transform: rotate(-8deg);
+        }
+
+        h3 {
+            font-size: 17px;
+            color: var(--accent-red);
+            margin: 20px 0 14px;
+            padding: 12px 0 12px 16px;
+            border-left: 4px solid var(--accent-yellow);
+            background: linear-gradient(90deg, rgba(255, 107, 107, 0.05), transparent);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        }
+
+        p {
+            margin: 12px 0;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        ul, ol {
+            margin: 12px 0;
+            padding-left: 26px;
+        }
+
+        li {
+            margin: 8px 0;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* === ユーティリティクラス === */
+        .highlight {
+            background: linear-gradient(135deg, var(--accent-yellow), #ffd93d);
+            color: var(--corp-blue);
+            padding: 3px 8px;
+            font-weight: 700;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(255, 217, 61, 0.3);
+        }
+
+        .emphasis {
+            color: var(--accent-red);
+            font-weight: 700;
+        }
+
+        .blue-text {
+            color: var(--corp-blue);
+            font-weight: 600;
+        }
+
+        /* === 1ページ目：表紙スタイル === */
+        .greeting {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 35px;
+            line-height: 1.6;
+            border-bottom: 2px dashed rgba(113, 128, 150, 0.3);
+            padding-bottom: 15px;
+        }
+
+        .main-catch {
+            font-size: 30px;
+            font-weight: 900;
+            color: var(--corp-blue);
+            line-height: 1.35;
+            margin: 45px 0 35px;
+            padding: 35px 28px;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #f8f9ff 100%);
+            border: 3px solid var(--corp-blue);
+            border-radius: var(--radius-xl);
+            box-shadow: 12px 12px 0px var(--accent-yellow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-catch::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 55px;
+            height: 55px;
+            background: var(--accent-red);
+            border-radius: 50% 0 50% 50%;
+            opacity: 0.15;
+        }
+
+        .sub-catch {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 30px 0;
+            padding: 22px;
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.08), var(--bg-primary));
+            border-left: 6px solid var(--accent-purple);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            box-shadow: var(--shadow-sm);
+            line-height: 1.7;
+        }
+
+        .intro-section {
+            background: var(--bg-secondary);
+            padding: 25px;
+            margin: 28px 0;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(59, 89, 152, 0.1);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .intro-section p {
+            font-size: 14px;
+            line-height: 1.8;
+            margin: 12px 0;
+        }
+
+        .target-message {
+            background: linear-gradient(135deg, var(--corp-blue) 0%, var(--accent-purple) 100%);
+            color: white;
+            padding: 30px;
+            margin: 35px 0 0;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .target-message::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 110px;
+            height: 110px;
+            background: rgba(255, 217, 61, 0.15);
+            border-radius: 50%;
+        }
+
+        .target-message p {
+            position: relative;
+            z-index: 2;
+            color: white;
+            font-size: 14px;
+            line-height: 1.8;
+            margin: 12px 0;
+        }
+
+        .target-message p:first-child {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* === 2ページ目：問題提起スタイル === */
+        .quote-box {
+            background: linear-gradient(135deg, #f0f7ff 0%, var(--bg-primary) 100%);
+            border-top: 4px solid var(--accent-purple);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .quote-box p {
+            font-size: 13px;
+            margin: 10px 0;
+        }
+
+        .quote-box strong {
+            font-size: 14px;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fff5f5 0%, var(--bg-primary) 100%);
+            border: 2px dashed var(--accent-red);
+            padding: 22px;
+            border-radius: var(--radius-lg);
+            margin: 22px 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .warning-box h3 {
+            color: var(--accent-red);
+            border: none;
+            background: none;
+            padding: 0;
+            margin: 0 0 14px 0;
+        }
+
+        .positive-message {
+            background: linear-gradient(135deg, #e8f5e8 0%, var(--bg-primary) 100%);
+            border-left: 5px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            font-weight: 500;
+            color: #2e7d32;
+            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+            box-shadow: var(--shadow-sm);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* === データテーブル === */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 12px;
+        }
+
+        th {
+            background: var(--corp-blue);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        td {
+            background: var(--bg-secondary);
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* === 3-4ページ目：保険カード === */
+        .insurance-card {
+            background: var(--bg-primary);
+            border: 2px solid rgba(59, 89, 152, 0.1);
+            margin: 22px 0;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            page-break-inside: avoid;
+        }
+
+        .insurance-header {
+            background: var(--bg-primary);
+            color: var(--corp-blue);
+            padding: 16px 20px;
+            font-weight: 900;
+            font-size: 17px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .card-1 .insurance-header {
+            border-left: 8px solid var(--accent-red);
+        }
+
+        .card-2 .insurance-header {
+            border-left: 8px solid var(--accent-yellow);
+        }
+
+        .card-3 .insurance-header {
+            border-left: 8px solid var(--accent-purple);
+        }
+
+        .insurance-tag {
+            font-size: 11px;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-1 .insurance-tag {
+            background: rgba(255, 107, 107, 0.1);
+            color: var(--accent-red);
+        }
+
+        .card-2 .insurance-tag {
+            background: rgba(255, 217, 61, 0.2);
+            color: #d4ac0d;
+        }
+
+        .card-3 .insurance-tag {
+            background: rgba(108, 92, 231, 0.1);
+            color: var(--accent-purple);
+        }
+
+        .insurance-body {
+            padding: 20px;
+            background: var(--bg-secondary);
+        }
+
+        .insurance-body p {
+            font-size: 12px;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .case-study-table {
+            background: var(--bg-primary);
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-sm);
+            margin-top: 14px;
+            width: 100%;
+            border-spacing: 0;
+        }
+
+        .case-study-table th {
+            background: #f8f9fa;
+            color: var(--text-secondary);
+            font-size: 11px;
+            padding: 10px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .case-study-table td {
+            background: var(--bg-primary);
+            padding: 10px;
+            font-size: 11px;
+            border-bottom: 1px solid #e2e8f0;
+            line-height: 1.4;
+        }
+
+        .point-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, var(--bg-primary) 100%);
+            padding: 14px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            border-left: 4px solid var(--corp-blue);
+            margin-top: 14px;
+            line-height: 1.6;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, var(--corp-blue) 0%, var(--accent-purple) 100%);
+            color: white;
+            padding: 28px;
+            text-align: center;
+            border-radius: var(--radius-xl);
+            margin: 28px 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .summary-box p {
+            color: white;
+            font-size: 14px;
+            margin: 10px 0;
+            line-height: 1.7;
+        }
+
+        .summary-box p:first-child {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 14px;
+        }
+
+        /* === 5ページ目：行動喚起スタイル === */
+        .timeline-section {
+            background: var(--bg-primary);
+            padding: 22px;
+            margin: 22px 0;
+            border-radius: var(--radius-md);
+            border: 2px solid rgba(59, 89, 152, 0.1);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin: 18px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 18px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--accent-purple), var(--accent-red));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            margin: 22px 0;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 6px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--bg-primary);
+            border: 4px solid var(--accent-purple);
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(2)::before {
+            border-color: var(--accent-yellow);
+        }
+
+        .timeline-item:nth-child(3)::before {
+            border-color: var(--accent-red);
+        }
+
+        .timeline-item strong {
+            display: block;
+            font-size: 14px;
+            color: var(--corp-blue);
+            margin-bottom: 6px;
+        }
+
+        .timeline-item p {
+            font-size: 13px;
+            margin: 6px 0;
+            color: var(--text-secondary);
+        }
+
+        .steps-section {
+            background: var(--bg-secondary);
+            padding: 22px;
+            margin: 22px 0;
+            border-radius: var(--radius-md);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .step-item {
+            background: var(--bg-primary);
+            padding: 18px;
+            border-radius: var(--radius-sm);
+            border: 2px solid rgba(59, 89, 152, 0.1);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .step-number {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--accent-yellow);
+            color: var(--corp-blue);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-weight: 900;
+            margin-right: 12px;
+            font-size: 14px;
+            box-shadow: 0 4px 10px rgba(255, 217, 61, 0.3);
+        }
+
+        .step-item strong {
+            font-size: 14px;
+            color: var(--corp-blue);
+        }
+
+        .step-item p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin: 6px 0 0 42px;
+        }
+
+        .support-message {
+            background: linear-gradient(135deg, #f0f7ff 0%, var(--bg-primary) 100%);
+            padding: 20px;
+            margin: 22px 0;
+            border-radius: var(--radius-md);
+            border: 2px solid rgba(59, 89, 152, 0.1);
+            text-align: center;
+        }
+
+        .support-message p {
+            margin: 8px 0;
+        }
+
+        .support-message p:first-child {
+            font-weight: bold;
+            color: var(--corp-blue);
+            font-size: 15px;
+        }
+
+        .line-section {
+            background: linear-gradient(135deg, #06c755 0%, #00b900 100%);
+            color: white;
+            padding: 30px;
+            border-radius: var(--radius-xl);
+            margin: 30px 0;
+            box-shadow: 0 12px 30px rgba(6, 199, 85, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .line-section::before {
+            content: '';
+            position: absolute;
+            top: -45px;
+            right: -45px;
+            width: 160px;
+            height: 160px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+        }
+
+        .line-content {
+            flex: 2;
+            position: relative;
+            z-index: 2;
+        }
+
+        .line-content h2 {
+            color: white;
+            font-size: 22px;
+            margin: 0 0 12px 0;
+        }
+
+        .line-content h2::before {
+            display: none;
+        }
+
+        .line-content p {
+            color: white;
+            font-size: 15px;
+            margin: 10px 0;
+        }
+
+        .line-benefits {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+
+        .line-benefits li {
+            margin: 10px 0;
+            padding-left: 32px;
+            position: relative;
+            font-size: 13px;
+            color: white;
+        }
+
+        .line-benefits li::before {
+            content: "✓";
+            color: var(--accent-yellow);
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            font-size: 18px;
+            background: rgba(255, 255, 255, 0.15);
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .line-qr {
+            flex: 1;
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .line-qr img {
+            width: 100%;
+            max-width: 130px;
+            height: auto;
+            border-radius: var(--radius-sm);
+            display: block;
+            margin: 0 auto;
+        }
+
+        .line-qr p {
+            font-size: 12px;
+            color: var(--corp-blue);
+            margin: 12px 0;
+            font-weight: 600;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent-yellow) 0%, #ffa500 100%);
+            color: var(--corp-blue);
+            padding: 12px 24px;
+            font-size: 13px;
+            font-weight: 900;
+            border-radius: 28px;
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(255, 217, 61, 0.4);
+        }
+
+        .contact-section {
+            background: var(--bg-primary);
+            padding: 22px;
+            margin: 22px 0;
+            border-radius: var(--radius-md);
+            border: 2px solid rgba(59, 89, 152, 0.1);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-section h3 {
+            margin: 0 0 14px 0;
+            border: none;
+            background: none;
+            padding: 0;
+        }
+
+        .final-cta {
+            background: linear-gradient(135deg, var(--accent-red) 0%, #f44336 100%);
+            color: white;
+            padding: 28px;
+            margin: 28px 0 0;
+            border-radius: var(--radius-xl);
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: -28px;
+            left: -28px;
+            width: 110px;
+            height: 110px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .final-cta p {
+            color: white;
+            margin: 10px 0;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .final-cta p:first-child {
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .final-cta .highlight {
+            background: white;
+            color: var(--accent-red);
+        }
+
+        /* QRコードフォールバック */
+        #qr-placeholder {
+            display: none;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border: 3px dashed var(--corp-blue);
+            border-radius: 10px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* レスポンシブ対応 */
+        @media screen and (max-width: 768px) {
+            .page {
+                width: 100%;
+                padding: 15mm;
+            }
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            .line-section {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 1ページ目：表紙 -->
+<div class="page">
+    <div class="greeting">
+        このたびは建築業許可を取得されましたこと、心よりお慶び申し上げます。<br>
+        突然のお手紙で失礼いたします。<br>
+        株式会社ホロスプランニング 大阪オフィスの白石と申します。
+    </div>
+
+    <div class="main-catch">
+        許可更新は通っても、現場には入れない―<br>
+        <span style="color: var(--accent-red);">2026年、その理由をご存じですか?</span>
+    </div>
+
+    <div class="sub-catch">
+        建設業許可だけでは不十分。2026年から変わる「現場入場基準」が、<br>
+        あなたの会社の未来を左右します。
+    </div>
+
+    <div class="intro-section">
+        <p>工期はタイト、人手は不足、天候リスクも避けられない―。それでも、現場を止めずに、品質と安全を守りながら工事を完遂する。建設業を営む皆様は、日々この難しい舵取りをされていることと存じます。</p>
+        <p>しかし今、建設現場を取り巻く環境は大きな転換期を迎えています。国土交通省と厚生労働省が推進する新たなガイドラインにより、<span class="emphasis">2026年から建設現場への入場基準が大幅に厳格化される</span>ことをご存じでしょうか。</p>
+    </div>
+
+    <div class="target-message">
+        <p>建設業の許可を取得されたばかりの経営者の皆様へ。</p>
+        <p>これまで建設業許可さえあれば現場で仕事ができた時代は終わりを告げようとしています。新しい基準では、<span class="highlight">適切な保険加入と安全管理体制の整備が必須</span>となり、これらを満たさない企業は、たとえ建設業許可を持っていても現場に入ることができなくなります。</p>
+        <p>本冊子では、2026年から変わる現場入場基準について、国土交通省・東京労働局の公式資料および実際の事故事例データをもとに、重要な情報をお届けします。</p>
+    </div>
+</div>
+
+<!-- 2ページ目：問題提起+データ -->
+<div class="page">
+    <h1>2026年、建設現場のルールが変わります</h1>
+
+    <h2>1. 法令・基準の変更点：何が求められるのか</h2>
+    
+    <p>国土交通省と厚生労働省のガイドラインに基づき、2026年から建設現場への入場基準が大幅に見直されます。具体的には以下の要件が必須となります。</p>
+    
+    <ul>
+        <li><span class="emphasis">必要な損害保険・労災上乗せ保険への加入</span>（加入証明書の提出）</li>
+        <li><span class="emphasis">安全管理体制の明文化</span>（安全衛生管理者の選任、安全衛生計画など）</li>
+        <li><span class="emphasis">労働安全衛生法・関連通達に基づく教育の実施</span>（新規入場者教育、高所作業教育 等）</li>
+        <li><span class="emphasis">労働時間・36協定 等、働き方改革関連法への対応状況</span>の確認</li>
+        <li><span class="emphasis">労災発生時の報告体制・再発防止策</span>の仕組み</li>
+    </ul>
+
+    <div class="quote-box">
+        <p><strong style="color: var(--accent-purple);">東京労働局が推進する4K対策：</strong></p>
+        <ul style="margin: 12px 0;">
+            <li><strong>決意表明：</strong>経営トップによる安全第一の方針表明</li>
+            <li><strong>管理活性化：</strong>現場の安全管理活動の継続的な見直し</li>
+            <li><strong>高所対策：</strong>足場・高所作業の落下防止対策強化</li>
+            <li><strong>教育強化：</strong>新規入場者・経験の浅い作業者への教育徹底</li>
+        </ul>
+    </div>
+
+    <h2>2. データが示す、建設業界の厳しい現実</h2>
+
+    <p>国土交通省および東京労働局の資料から、建設業を取り巻く現状を整理すると、次のような課題が浮かび上がります。</p>
+
+    <table>
+        <tr>
+            <th>項目</th>
+            <th>データ</th>
+            <th>意味するもの</th>
+        </tr>
+        <tr>
+            <td>建設業就業者数</td>
+            <td>685万人（平成9年）→<br>482万人（令和3年）<br><span class="emphasis">約30％減少</span></td>
+            <td>人手不足が慢性化し、1人あたりの負担が増大</td>
+        </tr>
+        <tr>
+            <td>年齢構成</td>
+            <td>55歳以上：<span class="emphasis">35.5％</span><br>29歳以下：<span class="emphasis">12.0％</span></td>
+            <td>高齢化が進み、経験は豊富でも災害時の重症化リスクが高い</td>
+        </tr>
+        <tr>
+            <td>年間実労働時間</td>
+            <td>建設業：<span class="emphasis">1,978時間</span><br>全産業平均：1,632時間<br>差：<span class="emphasis">346時間</span></td>
+            <td>長時間労働が続き、ヒューマンエラー・災害リスクが増大</td>
+        </tr>
+        <tr>
+            <td>休日取得</td>
+            <td>4週8休の現場は<br>わずか<span class="emphasis">19.5％</span></td>
+            <td>完全週休2日がまだ少なく、働き方改革への対応が求められる</td>
+        </tr>
+        <tr>
+            <td>労働災害</td>
+            <td>建設業の労働災害は<br><span class="emphasis">近年増加傾向</span><br>死亡災害防止が最優先課題</td>
+            <td>墜落・転落など、ひとたび発生すると重篤化しやすい災害が多い</td>
+        </tr>
+    </table>
+
+    <div class="quote-box">
+        <p style="font-weight: bold; color: var(--corp-blue);">
+            <span class="emphasis">「経営トップの強い意識と不断の取組が必要」</span>
+        </p>
+        <p>― 東京労働局は、第14次労働災害防止計画（2023～2027年度）の中で、建設業の労働災害防止には、経営トップが安全衛生の重要性を十分に認識し、継続的に取り組むことが不可欠であると明記しています。</p>
+    </div>
+
+    <div class="warning-box">
+        <h3>「もし対応しなかったら…」考えられるリスク</h3>
+        <p>2026年以降、こうした国の方針を踏まえて発注者・元請の入場基準が厳格化すると、<strong>対応が遅れた企業には、次のようなリスク</strong>が生じるおそれがあります。</p>
+        <ul>
+            <li><span class="emphasis">現場入場拒否 → 仕事ができない</span></li>
+            <li><span class="emphasis">取引先からの信用失墜 → 契約打ち切り</span></li>
+            <li><span class="emphasis">売上機会の損失 → 経営悪化</span></li>
+            <li><span class="emphasis">建設業許可への影響の可能性</span></li>
+            <li><span class="emphasis">労働災害発生時の多額の賠償責任</span></li>
+        </ul>
+    </div>
+
+    <div class="positive-message">
+        しかし、これは<span class="highlight">「きちんと備えていれば防げるリスク」</span>です。適切な保険と安全管理体制を整えておくことで、2026年以降も、安心して現場に入り続けることができます。
+    </div>
+</div>
+
+<!-- 3ページ目：保険1-2 -->
+<div class="page">
+    <h1>必要なのは、この3つの保険です</h1>
+    
+    <p style="font-size: 14px; margin-bottom: 25px;">
+        2026年基準をクリアし、万が一の事故からも会社を守るために、<strong>最低限、次の3つの損害保険をセットで備えておくことが重要</strong>です。
+    </p>
+
+    <!-- 1. 建設工事保険 -->
+    <div class="insurance-card card-1">
+        <div class="insurance-header">
+            <span>1. 建設工事保険</span>
+            <span class="insurance-tag">工事中の事故・損害</span>
+        </div>
+        <div class="insurance-body">
+            <p><span class="blue-text">カバーする範囲：</span>建設工事中に発生した偶然な事故による損害を補償（火災・爆発・盗難・台風等の自然災害・施工ミスに伴う突発的な損害 など）</p>
+            <p><span class="blue-text">2026年基準との関連性：</span>工事中のリスクを適切に管理していることの重要な証拠となります。</p>
+            
+            <table class="case-study-table">
+                <tr><th>概要</th><th>事故内容</th><th style="text-align: right;">損害額（概算）</th></tr>
+                <tr>
+                    <td>足場崩壊</td>
+                    <td>ビル建設工事中、強風により足場が崩壊し、構造物や仮設材が大きく損傷</td>
+                    <td style="text-align: right;"><span class="emphasis">約5,500万円</span></td>
+                </tr>
+                <tr>
+                    <td>放火による建物焼損</td>
+                    <td>工事中の建物に第三者が侵入・放火し、建物の一部が焼損</td>
+                    <td style="text-align: right;"><span class="emphasis">約2,000万円</span></td>
+                </tr>
+                <tr>
+                    <td>クレーン車破損</td>
+                    <td>作業中の操作ミスによりクレーン車が転倒し、機械本体が大きく破損</td>
+                    <td style="text-align: right;"><span class="emphasis">約940万円</span></td>
+                </tr>
+            </table>
+            <div class="point-box"><strong>ポイント：</strong>工事中の突発的な事故は、1件で数千万円規模の損害になることも珍しくありません。高額な修繕費・復旧費を自社で全て負担するリスクを軽減できます。</div>
+        </div>
+    </div>
+
+    <!-- 2. 賠償責任保険 -->
+    <div class="insurance-card card-2">
+        <div class="insurance-header">
+            <span>2. 賠償責任保険</span>
+            <span class="insurance-tag">対人・対物事故</span>
+        </div>
+        <div class="insurance-body">
+            <p><span class="blue-text">カバーする範囲：</span>工事に起因して第三者の身体や財物に損害を与えた場合の法律上の損害賠償責任を補償</p>
+            <p><span class="blue-text">2026年基準との関連性：</span>下請企業が十分な賠償能力を有しているかの確認が一層強まります。</p>
+            
+            <table class="case-study-table">
+                <tr><th>概要</th><th>事故内容</th><th style="text-align: right;">損害額（概算）</th></tr>
+                <tr>
+                    <td>給水管誤切断による漏水</td>
+                    <td>内装工事中に給水管を誤って切断し、下階のテナントに漏水。営業休止に伴う休業損害も発生</td>
+                    <td style="text-align: right;"><span class="emphasis">約4,000万円</span></td>
+                </tr>
+                <tr>
+                    <td>外壁タイル剥落</td>
+                    <td>ビル引渡し後、外壁タイルが剥落し、通行人や車両に被害のおそれ。補修工事・安全対策費用などが発生</td>
+                    <td style="text-align: right;"><span class="emphasis">約1,000万円</span></td>
+                </tr>
+                <tr>
+                    <td>壁崩落による人身事故</td>
+                    <td>改修工事中の壁が崩落し、近くにいた第三者が負傷。治療費や休業損害などを賠償</td>
+                    <td style="text-align: right;"><span class="emphasis">約690万円</span></td>
+                </tr>
+            </table>
+            <div class="point-box"><strong>ポイント：</strong>第三者への損害は、休業損害や慰謝料が加わることで金額が膨らみやすいのが特徴です。対人・対物事故に対する会社の支払能力を確保しておくことが重要です。</div>
+        </div>
+    </div>
+</div>
+
+<!-- 4ページ目：保険3+まとめ -->
+<div class="page">
+    <!-- 3. 労災上乗せ保険 -->
+    <div class="insurance-card card-3">
+        <div class="insurance-header">
+            <span>3. 労災上乗せ保険</span>
+            <span class="insurance-tag">従業員の安全</span>
+        </div>
+        <div class="insurance-body">
+            <p><span class="blue-text">カバーする範囲：</span>国の労災保険では補償しきれない部分を上乗せでカバー。企業としての「上乗せ補償」を準備</p>
+            <p><span class="blue-text">2026年基準との関連性：</span>安全配慮義務を果たしているかどうかを判断するうえでの重要な要素となります。</p>
+            
+            <div style="background: linear-gradient(135deg, #fff3e0 0%, var(--bg-primary) 100%); padding: 18px; border-radius: var(--radius-sm); margin: 18px 0; border-left: 4px solid var(--accent-yellow);">
+                <h4 style="color: #e65100; margin: 0 0 12px 0; font-size: 14px;">東京労働局資料が示すポイント</h4>
+                <ul style="margin: 10px 0; font-size: 12px;">
+                    <li>建設業の労働災害は<strong>近年増加傾向</strong></li>
+                    <li>なかでも<strong>墜落・転落災害</strong>が死亡災害の大きな割合を占める</li>
+                    <li>第14次労働災害防止計画（2023～2027年度）では、建設業における死亡災害の大幅削減が最優先課題</li>
+                    <li>経営トップの強い意識と不断の取組が求められている</li>
+                </ul>
+            </div>
+            <div class="point-box"><strong>ポイント：</strong>万が一の重篤災害発生時に、従業員とその家族を守るうえでの重要なセーフティネット。経営者としての社会的責任を果たすことにもつながります。</div>
+        </div>
+    </div>
+
+    <div class="summary-box">
+        <p>この3つセットで「2026年の現場入場基準をクリア」＋「会社を守る」</p>
+        <p>適切な保険があれば、万が一に備えながら、安心して本業の工事に集中できます。<br>
+        詳細な補償内容や保険料は、御社の事業内容・規模・工事種別に応じて個別に設計いたします。</p>
+    </div>
+</div>
+
+<!-- 5ページ目：行動喚起・クロージング -->
+<div class="page">
+    <h1>今から準備すれば、間に合います</h1>
+
+    <div class="timeline-section">
+        <h2>1. 2026年を見据えた準備タイムライン</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <strong>2024年後半～2025年前半：ご相談・リスク診断・見積もり</strong>
+                <p>御社の現在の保険加入状況・安全管理体制を確認し、2026年以降を見据えた必要補償の洗い出しと概算見積もりを行います。</p>
+            </div>
+            <div class="timeline-item">
+                <strong>2025年前半～後半：保険設計・加入手続き</strong>
+                <p>建設工事保険・賠償責任保険・労災上乗せ保険を、御社の事業内容に合わせて最適な形に設計し、加入手続きを進めます。</p>
+            </div>
+            <div class="timeline-item">
+                <strong>2026年：安心して現場入場・基準クリアへ</strong>
+                <p>発注者・元請からの入場要件提示にも、余裕をもって対応できます。事故発生時にも、事前に整えた補償に基づき、落ち着いて対応できます。</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="steps-section">
+        <h2>2. 導入までの流れ ― 4つのステップ</h2>
+        <div class="steps-grid">
+            <div class="step-item">
+                <span class="step-number">1</span><strong>まずはご相談</strong>
+                <p>現状の確認・課題の洗い出し。御社の工事内容・受注形態・従業員数・現在の保険加入状況をヒアリングします。</p>
+            </div>
+            <div class="step-item">
+                <span class="step-number">2</span><strong>最適なプランをご提案</strong>
+                <p>御社に合った補償内容。過不足のない補償内容を、複数の保険会社の商品から比較検討してご提案します。</p>
+            </div>
+            <div class="step-item">
+                <span class="step-number">3</span><strong>加入手続きをサポート</strong>
+                <p>面倒な手続きもお任せ。書類の作成・保険会社とのやり取りなど、煩雑な手続きは当社がサポートします。</p>
+            </div>
+            <div class="step-item">
+                <span class="step-number">4</span><strong>アフターフォローも万全</strong>
+                <p>継続的なサポート体制。更新時期のご案内や、法令・ガイドラインの変更情報、事業内容の変更に伴う補償見直しなど。</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="support-message">
+        <p>株式会社ホロスプランニング 大阪オフィスが、2026年対応を全面サポートいたします</p>
+        <p><span class="emphasis">国土交通省・厚生労働省のガイドラインに完全準拠</span>することを基本方針とし、御社の実情に合わせた、無理・無駄のない保険設計を心がけております。</p>
+    </div>
+
+    <div class="line-section">
+        <div class="line-content">
+            <h2>まずはLINEで気軽にご相談</h2>
+            <p style="font-weight: bold;">お忙しい経営者様でも、LINEなら隙間時間で相談可能</p>
+            <ul class="line-benefits">
+                <li>2026年対応の最新情報を随時配信</li>
+                <li>個別相談もLINEで簡単予約</li>
+                <li>営業時間外でもメッセージ送信OK</li>
+                <li>事故事例や対策情報も定期配信</li>
+            </ul>
+        </div>
+        <div class="line-qr">
+            <!-- 3段階フォールバック機能付きQRコード -->
+            <img src="https://www.genspark.ai/api/files/s/LcG6opmp" 
+                 alt="LINE公式アカウントQRコード"
+                 onerror="this.style.display='none'; document.getElementById('qr-fallback').style.display='block';">
+            
+            <img id="qr-fallback" 
+                 src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=LINE%20Official%20Account&format=png&margin=10" 
+                 alt="LINE公式アカウントQRコード（代替）"
+                 style="display: none;"
+                 onerror="this.style.display='none'; document.getElementById('qr-placeholder').style.display='flex';">
+            
+            <div id="qr-placeholder">
+                <svg width="55" height="55" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="3" y="3" width="6" height="6" rx="1" fill="var(--corp-blue)"/>
+                    <rect x="15" y="3" width="6" height="6" rx="1" fill="var(--corp-blue)"/>
+                    <rect x="3" y="15" width="6" height="6" rx="1" fill="var(--corp-blue)"/>
+                    <rect x="15" y="15" width="2" height="2" fill="var(--accent-red)"/>
+                    <rect x="18" y="15" width="3" height="2" fill="var(--accent-yellow)"/>
+                    <rect x="15" y="18" width="3" height="3" fill="var(--accent-purple)"/>
+                    <rect x="19" y="18" width="2" height="3" fill="var(--corp-blue)"/>
+                </svg>
+                <p style="margin: 12px 0 0 0; font-size: 11px; color: var(--corp-blue); text-align: center; font-weight: 600; line-height: 1.3;">LINE QR<br><span style="font-size: 9px; opacity: 0.7;">(印刷時配置)</span></p>
+            </div>
+            
+            <p>このQRコードを読み取って友だち追加</p>
+            <a href="#" class="cta-button">今すぐLINEで友だち追加</a>
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <h3>メールでのお問い合わせも承ります</h3>
+        <p style="margin: 10px 0;">
+            <strong>株式会社ホロスプランニング 大阪オフィス</strong><br>
+            担当：白石紀明（しらいし のりあき）<br>
+            E-mail：<a href="mailto:noriaki_shiraishi@holos.jp" style="color: var(--corp-blue); font-weight: bold; text-decoration: none;">noriaki_shiraishi@holos.jp</a>
+        </p>
+        <p style="font-size: 12px; color: var(--text-secondary); margin-top: 12px;">
+            ※具体的な保険料は、御社の状況に応じて個別にお見積もりいたします。
+        </p>
+    </div>
+
+    <div class="final-cta">
+        <p>まずはLINE登録で第一歩を。2026年対応、一緒に準備しましょう。</p>
+        <p>実際の事故事例が示すリスクから、あなたの会社と従業員を守るために。</p>
+        <p>今のうちから、<span class="highlight">必要な保険と安全体制を、着実に整えていきませんか。</span></p>
+    </div>
+</div>
+
+</body>
+</html>
