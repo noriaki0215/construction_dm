@@ -11,6 +11,12 @@ const path = require('path');
   const filePath = path.join(__dirname, 'construction-site-entry-standards-proposal.html');
   await page.goto(`file://${filePath}`, { waitUntil: 'networkidle0' });
 
+  // Webフォントの読み込み完了を待機
+  await page.evaluateHandle('document.fonts.ready');
+  
+  // 印刷用CSSメディアタイプのエミュレーション
+  await page.emulateMediaType('print');
+
   // PDFを生成
   await page.pdf({
     path: 'output.pdf',
