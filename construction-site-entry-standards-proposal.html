@@ -40,7 +40,7 @@
 
         body {
             font-family: 'Roboto', 'Noto Sans JP', sans-serif;
-            line-height: 1.5; /* 全体的に行間を少し詰める */
+            line-height: 1.7; /* 行間を戻す */
             color: var(--text-primary);
             margin: 0;
             padding: 0;
@@ -50,15 +50,15 @@
         /* A4サイズページ設定（レイアウト安定化） */
         .page {
             width: 210mm;
-            height: 297mm; /* 固定heightにする */
-            padding: 15mm; /* 余白を少し詰める 18mm -> 15mm */
-            margin: 0 auto; /* 下余白削除 */
+            min-height: 297mm; /* min-heightに戻す */
+            padding: 18mm; /* 余白を戻す */
+            margin: 0 auto 20px;
             background: var(--bg-primary);
             box-shadow: var(--shadow-md);
             position: relative;
             page-break-after: always;
             page-break-inside: avoid;
-            overflow: hidden; /* はみ出し防止 */
+            /* overflow: hidden; は削除して中身が切れないようにする */
         }
 
 
@@ -382,18 +382,17 @@
             border-bottom: none;
         }
 
-        /* === 3ページ目：保険カード（統合版） === */
+        /* === 3-4ページ目：保険カード（分割版） === */
+        /* グリッドレイアウトを解除し、元の縦積みに戻す */
         .insurance-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px; /* ギャップを少し詰める */
-            margin-bottom: 12px;
+            display: block;
+            margin-bottom: 20px;
         }
 
         .insurance-card {
             background: var(--bg-primary);
             border: 2px solid rgba(59, 89, 152, 0.1);
-            margin: 0;
+            margin: 20px 0; /* マージンを戻す */
             border-radius: var(--radius-md);
             overflow: hidden;
             box-shadow: var(--shadow-sm);
@@ -403,9 +402,9 @@
         .insurance-header {
             background: var(--bg-primary);
             color: var(--corp-blue);
-            padding: 6px 15px; /* パディング縮小 */
+            padding: 15px 20px; /* パディングを戻す */
             font-weight: 900;
-            font-size: 15px;
+            font-size: 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -413,129 +412,123 @@
         }
 
         .insurance-body {
-            padding: 10px 15px; /* パディング縮小 */
+            padding: 20px; /* パディングを戻す */
             background: var(--bg-secondary);
         }
 
         .insurance-body p {
-            font-size: 11px;
-            margin: 4px 0; /* マージン縮小 */
-            line-height: 1.4;
+            font-size: 13px; /* フォントサイズを戻す */
+            margin: 10px 0; /* マージンを戻す */
+            line-height: 1.6;
         }
         
         .insurance-description {
-             font-size: 11px;
-             margin-bottom: 6px;
+             font-size: 13px;
+             margin-bottom: 12px;
         }
 
         .case-study-table {
-            margin-top: 6px;
-            margin-bottom: 6px;
+            margin-top: 15px;
+            margin-bottom: 15px;
         }
 
         .case-study-table th, .case-study-table td {
-            padding: 4px 8px; /* パディング縮小 */
-            font-size: 10px;
+            padding: 10px; /* パディングを戻す */
+            font-size: 12px; /* フォントサイズを戻す */
         }
         
         .point-box {
-            padding: 6px 12px; /* パディング縮小 */
-            margin-top: 6px;
-            font-size: 11px;
-            line-height: 1.4;
+            padding: 15px; /* パディングを戻す */
+            margin-top: 15px;
+            font-size: 13px;
+            line-height: 1.6;
         }
 
         .summary-box {
-            padding: 12px; /* パディング縮小 */
-            margin: 12px 0 0;
+            padding: 25px; /* パディングを戻す */
+            margin: 25px 0 0;
             border-radius: var(--radius-lg);
         }
         
         .summary-box p {
-            font-size: 12px;
-            margin: 4px 0;
+            font-size: 14px;
+            margin: 10px 0;
         }
-
 
         .summary-box p:first-child {
-            font-size: 15px;
-            margin-bottom: 8px;
+            font-size: 18px;
+            margin-bottom: 15px;
         }
-        
-        /* 2カラムレイアウト（スペース節約のため保険1と2を横並びにする可能性も考慮したが、
-           情報量が多いので縦積みのままマージンを削る方針で行くが、
-           もし入りきらなければgrid-template-columnsを変更する）
-        */
 
-        /* === 4ページ目：行動喚起スタイル（スペース調整版） === */
+        /* === 5ページ目：行動喚起スタイル（復元） === */
         .timeline-section {
-            padding: 15px; /* パディング縮小 */
-            margin: 15px 0;
+            padding: 22px;
+            margin: 22px 0;
         }
 
         .timeline {
-             margin: 10px 0;
+             margin: 18px 0;
         }
 
         .timeline-item {
-            margin: 12px 0; /* マージン縮小 */
+            margin: 20px 0;
         }
         
         .timeline-item p {
-            margin: 2px 0;
+            margin: 8px 0;
         }
 
         .steps-section {
-            padding: 15px; /* パディング縮小 */
-            margin: 15px 0;
+            padding: 22px;
+            margin: 22px 0;
         }
 
         .steps-grid {
-             margin-top: 12px;
-             gap: 12px;
+             margin-top: 20px;
+             gap: 20px;
         }
 
         .step-item {
-             padding: 12px; /* パディング縮小 */
+             padding: 20px;
         }
         
         .step-item p {
-            margin-top: 2px;
+            margin-top: 8px;
         }
 
         .support-message {
-            padding: 12px; /* パディング縮小 */
-            margin: 12px 0;
+            padding: 20px;
+            margin: 20px 0;
         }
         
         .line-section {
-            padding: 15px; /* パディング縮小 */
-            margin: 15px 0;
+            padding: 30px;
+            margin: 30px 0;
         }
         
         .line-section::before {
-             top: -30px;
-             right: -30px;
-             width: 100px; /* サイズ縮小 */
-             height: 100px;
+             top: -45px;
+             right: -45px;
+             width: 160px;
+             height: 160px;
         }
 
         .line-content h2 {
-            font-size: 20px; /* フォントサイズ微調整 */
+            font-size: 22px;
         }
 
         .contact-section {
-            padding: 12px; /* パディング縮小 */
-            margin: 12px 0;
+            padding: 22px;
+            margin: 22px 0;
         }
 
         .final-cta {
-            padding: 15px; /* パディング縮小 */
-            margin: 15px 0 0;
+            padding: 28px;
+            margin: 28px 0 0;
         }
         
         .final-cta p {
-            margin: 4px 0;
+            margin: 10px 0;
         }
 
         .final-cta p:first-child {
@@ -697,72 +690,79 @@
     </div>
 </div>
 
-<!-- 3ページ目：保険1-3（統合） -->
+<!-- 3ページ目：保険1-2（建設工事・賠償責任） -->
 <div class="page">
     <h1>必要なのは、この3つの保険です</h1>
     
-    <p style="font-size: 13px; margin-bottom: 15px;">
+    <p style="font-size: 14px; margin-bottom: 25px;">
         2026年基準をクリアし、万が一の事故からも会社を守るために、<strong>最低限、次の3つの損害保険をセットで備えておくことが重要</strong>です。
     </p>
 
-    <div class="insurance-grid">
-        <!-- 1. 建設工事保険 -->
-        <div class="insurance-card card-1">
-            <div class="insurance-header">
-                <span>1. 建設工事保険</span>
-                <span class="insurance-tag">工事中の事故・損害</span>
-            </div>
-            <div class="insurance-body">
-                <p class="insurance-description"><span class="blue-text">カバー範囲：</span>工事中の偶然な事故（火災・台風・盗難等）による損害</p>
-                <table class="case-study-table">
-                    <tr><th>事故事例</th><th style="text-align: right;">損害額</th></tr>
-                    <tr><td>強風による足場崩壊</td><td style="text-align: right;"><span class="emphasis">約5,500万円</span></td></tr>
-                    <tr><td>作業ミスによるクレーン転倒</td><td style="text-align: right;"><span class="emphasis">約940万円</span></td></tr>
-                </table>
-                <div class="point-box"><strong>Point：</strong>工事中の事故は高額になりがち。自社負担リスクを軽減。</div>
-            </div>
+    <!-- 1. 建設工事保険 -->
+    <div class="insurance-card card-1">
+        <div class="insurance-header">
+            <span>1. 建設工事保険</span>
+            <span class="insurance-tag">工事中の事故・損害</span>
         </div>
-
-        <!-- 2. 賠償責任保険 -->
-        <div class="insurance-card card-2">
-            <div class="insurance-header">
-                <span>2. 賠償責任保険</span>
-                <span class="insurance-tag">対人・対物事故</span>
-            </div>
-            <div class="insurance-body">
-                <p class="insurance-description"><span class="blue-text">カバー範囲：</span>第三者への身体・財物損害に対する法律上の賠償責任</p>
-                <table class="case-study-table">
-                    <tr><th>事故事例</th><th style="text-align: right;">損害額</th></tr>
-                    <tr><td>給水管誤切断による漏水</td><td style="text-align: right;"><span class="emphasis">約4,000万円</span></td></tr>
-                    <tr><td>外壁タイル剥落による被害</td><td style="text-align: right;"><span class="emphasis">約1,000万円</span></td></tr>
-                </table>
-                <div class="point-box"><strong>Point：</strong>第三者損害は金額が膨らみやすい。支払能力の確保が必須。</div>
-            </div>
+        <div class="insurance-body">
+            <p class="insurance-description"><span class="blue-text">カバー範囲：</span>工事中の偶然な事故（火災・台風・盗難等）による損害</p>
+            <table class="case-study-table">
+                <tr><th>事故事例</th><th>事故内容</th><th style="text-align: right;">損害額</th></tr>
+                <tr><td>強風による足場崩壊</td><td>ビル建設工事中、強風により足場が崩壊し、構造物や仮設材が大きく損傷</td><td style="text-align: right;"><span class="emphasis">約5,500万円</span></td></tr>
+                <tr><td>クレーン車破損</td><td>作業中の操作ミスによりクレーン車が転倒し、機械本体が大きく破損</td><td style="text-align: right;"><span class="emphasis">約940万円</span></td></tr>
+            </table>
+            <div class="point-box"><strong>Point：</strong>工事中の事故は高額になりがち。自社負担リスクを軽減。</div>
         </div>
+    </div>
 
-        <!-- 3. 労災上乗せ保険 -->
-        <div class="insurance-card card-3">
-            <div class="insurance-header">
-                <span>3. 労災上乗せ保険</span>
-                <span class="insurance-tag">従業員の安全</span>
+    <!-- 2. 賠償責任保険 -->
+    <div class="insurance-card card-2">
+        <div class="insurance-header">
+            <span>2. 賠償責任保険</span>
+            <span class="insurance-tag">対人・対物事故</span>
+        </div>
+        <div class="insurance-body">
+            <p class="insurance-description"><span class="blue-text">カバー範囲：</span>第三者への身体・財物損害に対する法律上の賠償責任</p>
+            <table class="case-study-table">
+                <tr><th>事故事例</th><th>事故内容</th><th style="text-align: right;">損害額</th></tr>
+                <tr><td>給水管誤切断による漏水</td><td>内装工事中に給水管を誤って切断し、下階のテナントに漏水。</td><td style="text-align: right;"><span class="emphasis">約4,000万円</span></td></tr>
+                <tr><td>外壁タイル剥落</td><td>ビル引渡し後、外壁タイルが剥落し、通行人や車両に被害。</td><td style="text-align: right;"><span class="emphasis">約1,000万円</span></td></tr>
+            </table>
+            <div class="point-box"><strong>Point：</strong>第三者損害は金額が膨らみやすい。支払能力の確保が必須。</div>
+        </div>
+    </div>
+</div>
+
+<!-- 4ページ目：保険3+まとめ -->
+<div class="page">
+    <!-- 3. 労災上乗せ保険 -->
+    <div class="insurance-card card-3">
+        <div class="insurance-header">
+            <span>3. 労災上乗せ保険</span>
+            <span class="insurance-tag">従業員の安全</span>
+        </div>
+        <div class="insurance-body">
+            <p class="insurance-description"><span class="blue-text">カバー範囲：</span>国の労災保険の上乗せ補償。安全配慮義務の履行。</p>
+            <div style="background: #fff3e0; padding: 18px; border-radius: 8px; margin: 15px 0; border-left: 4px solid var(--accent-yellow);">
+                <h4 style="color: #e65100; margin: 0 0 12px 0; font-size: 14px;">東京労働局の重視点</h4>
+                <ul style="margin: 10px 0; font-size: 13px;">
+                    <li>建設業の労働災害は<strong>近年増加傾向</strong></li>
+                    <li>なかでも<strong>墜落・転落災害</strong>が死亡災害の大きな割合を占める</li>
+                    <li>死亡災害の大幅削減が最優先課題</li>
+                </ul>
             </div>
-            <div class="insurance-body">
-                <p class="insurance-description"><span class="blue-text">カバー範囲：</span>国の労災保険の上乗せ補償。安全配慮義務の履行。</p>
-                <div style="background: #fff3e0; padding: 10px; border-radius: 6px; margin: 8px 0; border-left: 3px solid var(--accent-yellow); font-size: 11px;">
-                    <strong>東京労働局の重視点：</strong>墜落・転落など死亡災害防止が最優先。
-                </div>
-                <div class="point-box"><strong>Point：</strong>従業員と家族を守るセーフティネット。企業の社会的責任。</div>
-            </div>
+            <div class="point-box"><strong>Point：</strong>従業員と家族を守るセーフティネット。企業の社会的責任。</div>
         </div>
     </div>
 
     <div class="summary-box">
         <p>この3つセットで「2026年の現場入場基準をクリア」＋「会社を守る」</p>
-        <p>詳細な補償内容や保険料は、御社の事業内容・規模・工事種別に応じて個別に設計いたします。</p>
+        <p>適切な保険があれば、万が一に備えながら、安心して本業の工事に集中できます。<br>
+        詳細な補償内容や保険料は、御社の事業内容・規模・工事種別に応じて個別に設計いたします。</p>
     </div>
 </div>
 
-<!-- 4ページ目：行動喚起・クロージング -->
+<!-- 5ページ目：行動喚起・クロージング -->
 <div class="page">
     <h1>今から準備すれば、間に合います</h1>
 
