@@ -40,7 +40,7 @@
 
         body {
             font-family: 'Roboto', 'Noto Sans JP', sans-serif;
-            line-height: 1.7;
+            line-height: 1.5; /* 全体的に行間を少し詰める */
             color: var(--text-primary);
             margin: 0;
             padding: 0;
@@ -50,15 +50,17 @@
         /* A4サイズページ設定（レイアウト安定化） */
         .page {
             width: 210mm;
-            min-height: 297mm; /* 固定heightを避けて柔軟性確保 */
-            padding: 18mm;
-            margin: 0 auto 20px;
+            height: 297mm; /* 固定heightにする */
+            padding: 15mm; /* 余白を少し詰める 18mm -> 15mm */
+            margin: 0 auto; /* 下余白削除 */
             background: var(--bg-primary);
             box-shadow: var(--shadow-md);
             position: relative;
             page-break-after: always;
             page-break-inside: avoid;
+            overflow: hidden; /* はみ出し防止 */
         }
+
 
         /* 印刷時の設定 */
         @media print {
@@ -384,8 +386,8 @@
         .insurance-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 15px;
-            margin-bottom: 15px;
+            gap: 12px; /* ギャップを少し詰める */
+            margin-bottom: 12px;
         }
 
         .insurance-card {
@@ -401,7 +403,7 @@
         .insurance-header {
             background: var(--bg-primary);
             color: var(--corp-blue);
-            padding: 8px 15px;
+            padding: 6px 15px; /* パディング縮小 */
             font-weight: 900;
             font-size: 15px;
             display: flex;
@@ -411,48 +413,49 @@
         }
 
         .insurance-body {
-            padding: 12px 15px;
+            padding: 10px 15px; /* パディング縮小 */
             background: var(--bg-secondary);
         }
 
         .insurance-body p {
             font-size: 11px;
-            margin: 6px 0;
-            line-height: 1.5;
+            margin: 4px 0; /* マージン縮小 */
+            line-height: 1.4;
         }
         
         .insurance-description {
              font-size: 11px;
-             margin-bottom: 8px;
+             margin-bottom: 6px;
         }
 
         .case-study-table {
-            margin-top: 8px;
-            margin-bottom: 8px;
+            margin-top: 6px;
+            margin-bottom: 6px;
         }
 
         .case-study-table th, .case-study-table td {
-            padding: 6px 8px;
+            padding: 4px 8px; /* パディング縮小 */
             font-size: 10px;
         }
         
         .point-box {
-            padding: 8px 12px;
-            margin-top: 8px;
+            padding: 6px 12px; /* パディング縮小 */
+            margin-top: 6px;
             font-size: 11px;
             line-height: 1.4;
         }
 
         .summary-box {
-            padding: 15px;
-            margin: 15px 0 0;
+            padding: 12px; /* パディング縮小 */
+            margin: 12px 0 0;
             border-radius: var(--radius-lg);
         }
         
         .summary-box p {
             font-size: 12px;
-            margin: 5px 0;
+            margin: 4px 0;
         }
+
 
         .summary-box p:first-child {
             font-size: 15px;
@@ -466,69 +469,73 @@
 
         /* === 4ページ目：行動喚起スタイル（スペース調整版） === */
         .timeline-section {
-            padding: 18px;
-            margin: 18px 0;
+            padding: 15px; /* パディング縮小 */
+            margin: 15px 0;
         }
 
         .timeline {
-             margin: 12px 0;
+             margin: 10px 0;
         }
 
         .timeline-item {
-            margin: 15px 0;
+            margin: 12px 0; /* マージン縮小 */
         }
         
         .timeline-item p {
-            margin: 4px 0;
+            margin: 2px 0;
         }
 
         .steps-section {
-            padding: 18px;
-            margin: 18px 0;
+            padding: 15px; /* パディング縮小 */
+            margin: 15px 0;
         }
 
         .steps-grid {
-             margin-top: 15px;
-             gap: 15px;
+             margin-top: 12px;
+             gap: 12px;
         }
 
         .step-item {
-             padding: 15px;
+             padding: 12px; /* パディング縮小 */
         }
         
         .step-item p {
-            margin-top: 4px;
+            margin-top: 2px;
         }
 
         .support-message {
-            padding: 15px;
-            margin: 15px 0;
+            padding: 12px; /* パディング縮小 */
+            margin: 12px 0;
         }
         
         .line-section {
-            padding: 20px;
-            margin: 20px 0;
+            padding: 15px; /* パディング縮小 */
+            margin: 15px 0;
         }
         
         .line-section::before {
              top: -30px;
              right: -30px;
-             width: 120px;
-             height: 120px;
+             width: 100px; /* サイズ縮小 */
+             height: 100px;
+        }
+
+        .line-content h2 {
+            font-size: 20px; /* フォントサイズ微調整 */
         }
 
         .contact-section {
-            padding: 15px;
-            margin: 15px 0;
+            padding: 12px; /* パディング縮小 */
+            margin: 12px 0;
         }
 
         .final-cta {
-            padding: 20px;
-            margin: 20px 0 0;
+            padding: 15px; /* パディング縮小 */
+            margin: 15px 0 0;
         }
         
         .final-cta p {
-            margin: 6px 0;
+            margin: 4px 0;
         }
 
         .final-cta p:first-child {
