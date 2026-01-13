@@ -20,14 +20,9 @@ const path = require('path');
   // PDFを生成
   await page.pdf({
     path: 'output.pdf',
-    format: 'A4',
     printBackground: true,
-    margin: {
-      top: '0',
-      right: '0',
-      bottom: '0',
-      left: '0'
-    }
+    preferCSSPageSize: true, // CSSで指定したページサイズ(@page)を優先
+    // formatとmarginはCSS側で制御するため削除（またはCSSと競合しないように設定）
   });
 
   await browser.close();
