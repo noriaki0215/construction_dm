@@ -380,12 +380,19 @@
             border-bottom: none;
         }
 
-        /* === 3-4ページ目：保険カード === */
+        /* === 3ページ目：保険カード（統合版） === */
+        .insurance-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
         .insurance-card {
             background: var(--bg-primary);
             border: 2px solid rgba(59, 89, 152, 0.1);
-            margin: 22px 0;
-            border-radius: var(--radius-lg);
+            margin: 0;
+            border-radius: var(--radius-md);
             overflow: hidden;
             box-shadow: var(--shadow-sm);
             page-break-inside: avoid;
@@ -394,417 +401,134 @@
         .insurance-header {
             background: var(--bg-primary);
             color: var(--corp-blue);
-            padding: 16px 20px;
+            padding: 8px 15px;
             font-weight: 900;
-            font-size: 17px;
+            font-size: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid #f0f0f0;
         }
 
-        .card-1 .insurance-header {
-            border-left: 8px solid var(--accent-red);
-        }
-
-        .card-2 .insurance-header {
-            border-left: 8px solid var(--accent-yellow);
-        }
-
-        .card-3 .insurance-header {
-            border-left: 8px solid var(--accent-purple);
-        }
-
-        .insurance-tag {
-            font-size: 11px;
-            padding: 4px 12px;
-            border-radius: 16px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .card-1 .insurance-tag {
-            background: rgba(255, 107, 107, 0.1);
-            color: var(--accent-red);
-        }
-
-        .card-2 .insurance-tag {
-            background: rgba(255, 217, 61, 0.2);
-            color: #d4ac0d;
-        }
-
-        .card-3 .insurance-tag {
-            background: rgba(108, 92, 231, 0.1);
-            color: var(--accent-purple);
-        }
-
         .insurance-body {
-            padding: 20px;
+            padding: 12px 15px;
             background: var(--bg-secondary);
         }
 
         .insurance-body p {
-            font-size: 12px;
-            margin: 10px 0;
-            line-height: 1.6;
+            font-size: 11px;
+            margin: 6px 0;
+            line-height: 1.5;
+        }
+        
+        .insurance-description {
+             font-size: 11px;
+             margin-bottom: 8px;
         }
 
         .case-study-table {
-            background: var(--bg-primary);
-            border: 1px solid #e2e8f0;
-            border-radius: var(--radius-sm);
-            margin-top: 14px;
-            width: 100%;
-            border-spacing: 0;
+            margin-top: 8px;
+            margin-bottom: 8px;
         }
 
-        .case-study-table th {
-            background: #f8f9fa;
-            color: var(--text-secondary);
-            font-size: 11px;
-            padding: 10px;
-            border-bottom: 1px solid #e2e8f0;
+        .case-study-table th, .case-study-table td {
+            padding: 6px 8px;
+            font-size: 10px;
         }
-
-        .case-study-table td {
-            background: var(--bg-primary);
-            padding: 10px;
+        
+        .point-box {
+            padding: 8px 12px;
+            margin-top: 8px;
             font-size: 11px;
-            border-bottom: 1px solid #e2e8f0;
             line-height: 1.4;
         }
 
-        .point-box {
-            background: linear-gradient(135deg, #e3f2fd 0%, var(--bg-primary) 100%);
-            padding: 14px;
-            border-radius: var(--radius-sm);
-            font-size: 12px;
-            border-left: 4px solid var(--corp-blue);
-            margin-top: 14px;
-            line-height: 1.6;
-        }
-
         .summary-box {
-            background: linear-gradient(135deg, var(--corp-blue) 0%, var(--accent-purple) 100%);
-            color: white;
-            padding: 28px;
-            text-align: center;
-            border-radius: var(--radius-xl);
-            margin: 28px 0;
-            box-shadow: var(--shadow-lg);
+            padding: 15px;
+            margin: 15px 0 0;
+            border-radius: var(--radius-lg);
         }
-
+        
         .summary-box p {
-            color: white;
-            font-size: 14px;
-            margin: 10px 0;
-            line-height: 1.7;
+            font-size: 12px;
+            margin: 5px 0;
         }
 
         .summary-box p:first-child {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 14px;
+            font-size: 15px;
+            margin-bottom: 8px;
         }
+        
+        /* 2カラムレイアウト（スペース節約のため保険1と2を横並びにする可能性も考慮したが、
+           情報量が多いので縦積みのままマージンを削る方針で行くが、
+           もし入りきらなければgrid-template-columnsを変更する）
+        */
 
-        /* === 5ページ目：行動喚起スタイル === */
+        /* === 4ページ目：行動喚起スタイル（スペース調整版） === */
         .timeline-section {
-            background: var(--bg-primary);
-            padding: 22px;
-            margin: 22px 0;
-            border-radius: var(--radius-md);
-            border: 2px solid rgba(59, 89, 152, 0.1);
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 40px;
+            padding: 18px;
             margin: 18px 0;
         }
 
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 18px;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(180deg, var(--accent-purple), var(--accent-red));
-            border-radius: 2px;
+        .timeline {
+             margin: 12px 0;
         }
 
         .timeline-item {
-            margin: 22px 0;
-            position: relative;
+            margin: 15px 0;
         }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -32px;
-            top: 6px;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: var(--bg-primary);
-            border: 4px solid var(--accent-purple);
-            z-index: 2;
-        }
-
-        .timeline-item:nth-child(2)::before {
-            border-color: var(--accent-yellow);
-        }
-
-        .timeline-item:nth-child(3)::before {
-            border-color: var(--accent-red);
-        }
-
-        .timeline-item strong {
-            display: block;
-            font-size: 14px;
-            color: var(--corp-blue);
-            margin-bottom: 6px;
-        }
-
+        
         .timeline-item p {
-            font-size: 13px;
-            margin: 6px 0;
-            color: var(--text-secondary);
+            margin: 4px 0;
         }
 
         .steps-section {
-            background: var(--bg-secondary);
-            padding: 22px;
-            margin: 22px 0;
-            border-radius: var(--radius-md);
+            padding: 18px;
+            margin: 18px 0;
         }
 
         .steps-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-            margin-top: 18px;
+             margin-top: 15px;
+             gap: 15px;
         }
 
         .step-item {
-            background: var(--bg-primary);
-            padding: 18px;
-            border-radius: var(--radius-sm);
-            border: 2px solid rgba(59, 89, 152, 0.1);
-            box-shadow: var(--shadow-sm);
+             padding: 15px;
         }
-
-        .step-number {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            background: var(--accent-yellow);
-            color: var(--corp-blue);
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            font-weight: 900;
-            margin-right: 12px;
-            font-size: 14px;
-            box-shadow: 0 4px 10px rgba(255, 217, 61, 0.3);
-        }
-
-        .step-item strong {
-            font-size: 14px;
-            color: var(--corp-blue);
-        }
-
+        
         .step-item p {
-            font-size: 12px;
-            color: var(--text-secondary);
-            margin: 6px 0 0 42px;
+            margin-top: 4px;
         }
 
         .support-message {
-            background: linear-gradient(135deg, #f0f7ff 0%, var(--bg-primary) 100%);
-            padding: 20px;
-            margin: 22px 0;
-            border-radius: var(--radius-md);
-            border: 2px solid rgba(59, 89, 152, 0.1);
-            text-align: center;
-        }
-
-        .support-message p {
-            margin: 8px 0;
-        }
-
-        .support-message p:first-child {
-            font-weight: bold;
-            color: var(--corp-blue);
-            font-size: 15px;
-        }
-
-        .line-section {
-            background: linear-gradient(135deg, #06c755 0%, #00b900 100%);
-            color: white;
-            padding: 30px;
-            border-radius: var(--radius-xl);
-            margin: 30px 0;
-            box-shadow: 0 12px 30px rgba(6, 199, 85, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .line-section::before {
-            content: '';
-            position: absolute;
-            top: -45px;
-            right: -45px;
-            width: 160px;
-            height: 160px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 50%;
-        }
-
-        .line-content {
-            flex: 2;
-            position: relative;
-            z-index: 2;
-        }
-
-        .line-content h2 {
-            color: white;
-            font-size: 22px;
-            margin: 0 0 12px 0;
-        }
-
-        .line-content h2::before {
-            display: none;
-        }
-
-        .line-content p {
-            color: white;
-            font-size: 15px;
-            margin: 10px 0;
-        }
-
-        .line-benefits {
-            list-style: none;
-            padding: 0;
+            padding: 15px;
             margin: 15px 0;
         }
-
-        .line-benefits li {
-            margin: 10px 0;
-            padding-left: 32px;
-            position: relative;
-            font-size: 13px;
-            color: white;
-        }
-
-        .line-benefits li::before {
-            content: "✓";
-            color: var(--accent-yellow);
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            font-size: 18px;
-            background: rgba(255, 255, 255, 0.15);
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .line-qr {
-            flex: 1;
-            text-align: center;
-            background: white;
+        
+        .line-section {
             padding: 20px;
-            border-radius: var(--radius-md);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 2;
+            margin: 20px 0;
         }
-
-        .line-qr img {
-            width: 100%;
-            max-width: 130px;
-            height: auto;
-            border-radius: var(--radius-sm);
-            display: block;
-            margin: 0 auto;
-        }
-
-        .line-qr p {
-            font-size: 12px;
-            color: var(--corp-blue);
-            margin: 12px 0;
-            font-weight: 600;
-        }
-
-        .cta-button {
-            background: linear-gradient(135deg, var(--accent-yellow) 0%, #ffa500 100%);
-            color: var(--corp-blue);
-            padding: 12px 24px;
-            font-size: 13px;
-            font-weight: 900;
-            border-radius: 28px;
-            display: inline-block;
-            margin-top: 10px;
-            text-decoration: none;
-            box-shadow: 0 5px 15px rgba(255, 217, 61, 0.4);
+        
+        .line-section::before {
+             top: -30px;
+             right: -30px;
+             width: 120px;
+             height: 120px;
         }
 
         .contact-section {
-            background: var(--bg-primary);
-            padding: 22px;
-            margin: 22px 0;
-            border-radius: var(--radius-md);
-            border: 2px solid rgba(59, 89, 152, 0.1);
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .contact-section h3 {
-            margin: 0 0 14px 0;
-            border: none;
-            background: none;
-            padding: 0;
+            padding: 15px;
+            margin: 15px 0;
         }
 
         .final-cta {
-            background: linear-gradient(135deg, var(--accent-red) 0%, #f44336 100%);
-            color: white;
-            padding: 28px;
-            margin: 28px 0 0;
-            border-radius: var(--radius-xl);
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            overflow: hidden;
+            padding: 20px;
+            margin: 20px 0 0;
         }
-
-        .final-cta::before {
-            content: '';
-            position: absolute;
-            top: -28px;
-            left: -28px;
-            width: 110px;
-            height: 110px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-        }
-
+        
         .final-cta p {
-            color: white;
-            margin: 10px 0;
-            font-weight: 600;
-            position: relative;
-            z-index: 2;
-            font-size: 14px;
-            line-height: 1.7;
+            margin: 6px 0;
         }
 
         .final-cta p:first-child {
@@ -966,112 +690,72 @@
     </div>
 </div>
 
-<!-- 3ページ目：保険1-2 -->
+<!-- 3ページ目：保険1-3（統合） -->
 <div class="page">
     <h1>必要なのは、この3つの保険です</h1>
     
-    <p style="font-size: 14px; margin-bottom: 25px;">
+    <p style="font-size: 13px; margin-bottom: 15px;">
         2026年基準をクリアし、万が一の事故からも会社を守るために、<strong>最低限、次の3つの損害保険をセットで備えておくことが重要</strong>です。
     </p>
 
-    <!-- 1. 建設工事保険 -->
-    <div class="insurance-card card-1">
-        <div class="insurance-header">
-            <span>1. 建設工事保険</span>
-            <span class="insurance-tag">工事中の事故・損害</span>
-        </div>
-        <div class="insurance-body">
-            <p><span class="blue-text">カバーする範囲：</span>建設工事中に発生した偶然な事故による損害を補償（火災・爆発・盗難・台風等の自然災害・施工ミスに伴う突発的な損害 など）</p>
-            <p><span class="blue-text">2026年基準との関連性：</span>工事中のリスクを適切に管理していることの重要な証拠となります。</p>
-            
-            <table class="case-study-table">
-                <tr><th>概要</th><th>事故内容</th><th style="text-align: right;">損害額（概算）</th></tr>
-                <tr>
-                    <td>足場崩壊</td>
-                    <td>ビル建設工事中、強風により足場が崩壊し、構造物や仮設材が大きく損傷</td>
-                    <td style="text-align: right;"><span class="emphasis">約5,500万円</span></td>
-                </tr>
-                <tr>
-                    <td>放火による建物焼損</td>
-                    <td>工事中の建物に第三者が侵入・放火し、建物の一部が焼損</td>
-                    <td style="text-align: right;"><span class="emphasis">約2,000万円</span></td>
-                </tr>
-                <tr>
-                    <td>クレーン車破損</td>
-                    <td>作業中の操作ミスによりクレーン車が転倒し、機械本体が大きく破損</td>
-                    <td style="text-align: right;"><span class="emphasis">約940万円</span></td>
-                </tr>
-            </table>
-            <div class="point-box"><strong>ポイント：</strong>工事中の突発的な事故は、1件で数千万円規模の損害になることも珍しくありません。高額な修繕費・復旧費を自社で全て負担するリスクを軽減できます。</div>
-        </div>
-    </div>
-
-    <!-- 2. 賠償責任保険 -->
-    <div class="insurance-card card-2">
-        <div class="insurance-header">
-            <span>2. 賠償責任保険</span>
-            <span class="insurance-tag">対人・対物事故</span>
-        </div>
-        <div class="insurance-body">
-            <p><span class="blue-text">カバーする範囲：</span>工事に起因して第三者の身体や財物に損害を与えた場合の法律上の損害賠償責任を補償</p>
-            <p><span class="blue-text">2026年基準との関連性：</span>下請企業が十分な賠償能力を有しているかの確認が一層強まります。</p>
-            
-            <table class="case-study-table">
-                <tr><th>概要</th><th>事故内容</th><th style="text-align: right;">損害額（概算）</th></tr>
-                <tr>
-                    <td>給水管誤切断による漏水</td>
-                    <td>内装工事中に給水管を誤って切断し、下階のテナントに漏水。営業休止に伴う休業損害も発生</td>
-                    <td style="text-align: right;"><span class="emphasis">約4,000万円</span></td>
-                </tr>
-                <tr>
-                    <td>外壁タイル剥落</td>
-                    <td>ビル引渡し後、外壁タイルが剥落し、通行人や車両に被害のおそれ。補修工事・安全対策費用などが発生</td>
-                    <td style="text-align: right;"><span class="emphasis">約1,000万円</span></td>
-                </tr>
-                <tr>
-                    <td>壁崩落による人身事故</td>
-                    <td>改修工事中の壁が崩落し、近くにいた第三者が負傷。治療費や休業損害などを賠償</td>
-                    <td style="text-align: right;"><span class="emphasis">約690万円</span></td>
-                </tr>
-            </table>
-            <div class="point-box"><strong>ポイント：</strong>第三者への損害は、休業損害や慰謝料が加わることで金額が膨らみやすいのが特徴です。対人・対物事故に対する会社の支払能力を確保しておくことが重要です。</div>
-        </div>
-    </div>
-</div>
-
-<!-- 4ページ目：保険3+まとめ -->
-<div class="page">
-    <!-- 3. 労災上乗せ保険 -->
-    <div class="insurance-card card-3">
-        <div class="insurance-header">
-            <span>3. 労災上乗せ保険</span>
-            <span class="insurance-tag">従業員の安全</span>
-        </div>
-        <div class="insurance-body">
-            <p><span class="blue-text">カバーする範囲：</span>国の労災保険では補償しきれない部分を上乗せでカバー。企業としての「上乗せ補償」を準備</p>
-            <p><span class="blue-text">2026年基準との関連性：</span>安全配慮義務を果たしているかどうかを判断するうえでの重要な要素となります。</p>
-            
-            <div style="background: linear-gradient(135deg, #fff3e0 0%, var(--bg-primary) 100%); padding: 18px; border-radius: var(--radius-sm); margin: 18px 0; border-left: 4px solid var(--accent-yellow);">
-                <h4 style="color: #e65100; margin: 0 0 12px 0; font-size: 14px;">東京労働局資料が示すポイント</h4>
-                <ul style="margin: 10px 0; font-size: 12px;">
-                    <li>建設業の労働災害は<strong>近年増加傾向</strong></li>
-                    <li>なかでも<strong>墜落・転落災害</strong>が死亡災害の大きな割合を占める</li>
-                    <li>第14次労働災害防止計画（2023～2027年度）では、建設業における死亡災害の大幅削減が最優先課題</li>
-                    <li>経営トップの強い意識と不断の取組が求められている</li>
-                </ul>
+    <div class="insurance-grid">
+        <!-- 1. 建設工事保険 -->
+        <div class="insurance-card card-1">
+            <div class="insurance-header">
+                <span>1. 建設工事保険</span>
+                <span class="insurance-tag">工事中の事故・損害</span>
             </div>
-            <div class="point-box"><strong>ポイント：</strong>万が一の重篤災害発生時に、従業員とその家族を守るうえでの重要なセーフティネット。経営者としての社会的責任を果たすことにもつながります。</div>
+            <div class="insurance-body">
+                <p class="insurance-description"><span class="blue-text">カバー範囲：</span>工事中の偶然な事故（火災・台風・盗難等）による損害</p>
+                <table class="case-study-table">
+                    <tr><th>事故事例</th><th style="text-align: right;">損害額</th></tr>
+                    <tr><td>強風による足場崩壊</td><td style="text-align: right;"><span class="emphasis">約5,500万円</span></td></tr>
+                    <tr><td>作業ミスによるクレーン転倒</td><td style="text-align: right;"><span class="emphasis">約940万円</span></td></tr>
+                </table>
+                <div class="point-box"><strong>Point：</strong>工事中の事故は高額になりがち。自社負担リスクを軽減。</div>
+            </div>
+        </div>
+
+        <!-- 2. 賠償責任保険 -->
+        <div class="insurance-card card-2">
+            <div class="insurance-header">
+                <span>2. 賠償責任保険</span>
+                <span class="insurance-tag">対人・対物事故</span>
+            </div>
+            <div class="insurance-body">
+                <p class="insurance-description"><span class="blue-text">カバー範囲：</span>第三者への身体・財物損害に対する法律上の賠償責任</p>
+                <table class="case-study-table">
+                    <tr><th>事故事例</th><th style="text-align: right;">損害額</th></tr>
+                    <tr><td>給水管誤切断による漏水</td><td style="text-align: right;"><span class="emphasis">約4,000万円</span></td></tr>
+                    <tr><td>外壁タイル剥落による被害</td><td style="text-align: right;"><span class="emphasis">約1,000万円</span></td></tr>
+                </table>
+                <div class="point-box"><strong>Point：</strong>第三者損害は金額が膨らみやすい。支払能力の確保が必須。</div>
+            </div>
+        </div>
+
+        <!-- 3. 労災上乗せ保険 -->
+        <div class="insurance-card card-3">
+            <div class="insurance-header">
+                <span>3. 労災上乗せ保険</span>
+                <span class="insurance-tag">従業員の安全</span>
+            </div>
+            <div class="insurance-body">
+                <p class="insurance-description"><span class="blue-text">カバー範囲：</span>国の労災保険の上乗せ補償。安全配慮義務の履行。</p>
+                <div style="background: #fff3e0; padding: 10px; border-radius: 6px; margin: 8px 0; border-left: 3px solid var(--accent-yellow); font-size: 11px;">
+                    <strong>東京労働局の重視点：</strong>墜落・転落など死亡災害防止が最優先。
+                </div>
+                <div class="point-box"><strong>Point：</strong>従業員と家族を守るセーフティネット。企業の社会的責任。</div>
+            </div>
         </div>
     </div>
 
     <div class="summary-box">
         <p>この3つセットで「2026年の現場入場基準をクリア」＋「会社を守る」</p>
-        <p>適切な保険があれば、万が一に備えながら、安心して本業の工事に集中できます。<br>
-        詳細な補償内容や保険料は、御社の事業内容・規模・工事種別に応じて個別に設計いたします。</p>
+        <p>詳細な補償内容や保険料は、御社の事業内容・規模・工事種別に応じて個別に設計いたします。</p>
     </div>
 </div>
 
-<!-- 5ページ目：行動喚起・クロージング -->
+<!-- 4ページ目：行動喚起・クロージング -->
 <div class="page">
     <h1>今から準備すれば、間に合います</h1>
 
