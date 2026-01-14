@@ -54,7 +54,8 @@
         /* A4サイズページ設定（レイアウト安定化） */
         .page {
             width: 210mm;
-            height: 297mm; /* 固定heightにして1ページの高さを保証 */
+            min-height: 297mm; /* 高さを固定せず最小値を設定 */
+            height: auto;      /* 内容に応じて伸びるようにする */
             padding: 18mm; 
             margin: 0 auto 20px;
             background: var(--bg-primary);
@@ -62,7 +63,7 @@
             position: relative;
             page-break-after: always;
             page-break-inside: avoid;
-            overflow: hidden; /* 中身が溢れても次ページに行かせない */
+            /* overflow: hidden; 削除して内容を表示させる */
         }
         
         /* 印刷時のみ、overflow:hidden を解除しないと、逆に印刷されない部分が出るブラウザもあるが、
@@ -76,9 +77,10 @@
                  margin: 0; /* 中央揃え解除 */
                  box-shadow: none; /* 影削除 */
                  page-break-after: always;
-                 height: 297mm; /* 印刷時も高さ固定 */
+                 height: auto; /* 印刷時も高さ自動 */
+                 min-height: 297mm;
                  width: 100%; /* 幅を合わせる */
-                 overflow: hidden;
+                 overflow: visible;
              }
         }
 
