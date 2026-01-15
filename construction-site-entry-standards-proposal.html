@@ -801,16 +801,11 @@
             </ul>
         </div>
         <div class="line-qr">
-            <!-- 3段階フォールバック機能付きQRコード -->
-            <img src="https://www.genspark.ai/api/files/s/LcG6opmp" 
+            <!-- QRコード画像：images/line_qr.png を配置してください -->
+            <img src="images/line_qr.png" 
                  alt="LINE公式アカウントQRコード"
-                 onerror="this.style.display='none'; document.getElementById('qr-fallback').style.display='block';">
-            
-            <img id="qr-fallback" 
-                 src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=LINE%20Official%20Account&format=png&margin=10" 
-                 alt="LINE公式アカウントQRコード（代替）"
-                 style="display: none;"
-                 onerror="this.style.display='none'; document.getElementById('qr-placeholder').style.display='flex';">
+                 onerror="this.style.display='none'; document.getElementById('qr-placeholder').style.display='flex';"
+                 style="width: 140px; height: 140px; object-fit: contain; margin-bottom: 10px;">
             
             <div id="qr-placeholder">
                 <svg width="55" height="55" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -822,7 +817,7 @@
                     <rect x="15" y="18" width="3" height="3" fill="var(--accent-purple)"/>
                     <rect x="19" y="18" width="2" height="3" fill="var(--corp-blue)"/>
                 </svg>
-                <p style="margin: 12px 0 0 0; font-size: 11px; color: var(--corp-blue); text-align: center; font-weight: 600; line-height: 1.3;">LINE QR<br><span style="font-size: 9px; opacity: 0.7;">(印刷時配置)</span></p>
+                <p style="margin: 12px 0 0 0; font-size: 11px; color: var(--corp-blue); text-align: center; font-weight: 600; line-height: 1.3;">画像未設定<br><span style="font-size: 9px; opacity: 0.7;">images/line_qr.png<br>を配置してください</span></p>
             </div>
             
             <p>このQRコードを読み取って友だち追加</p>
