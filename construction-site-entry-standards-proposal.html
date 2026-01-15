@@ -57,13 +57,21 @@
             min-height: 297mm; /* 高さを固定せず最小値を設定 */
             height: auto;      /* 内容に応じて伸びるようにする */
             padding: 18mm; 
-            margin: 0 auto 20px;
+            margin: 0 auto;    /* マージン下部を0に変更して隙間をなくす */
             background: var(--bg-primary);
-            box-shadow: var(--shadow-md);
+            box-shadow: none;  /* 影を削除して境界を目立たなくする */
+            border-bottom: 1px dashed #eee; /* ページの継ぎ目に薄い線を入れる（任意） */
             position: relative;
+            /* page-break-after: always; は印刷時のために残しておく */
             page-break-after: always;
             page-break-inside: avoid;
             /* overflow: hidden; 削除して内容を表示させる */
+        }
+        
+        /* 最後のページだけ下の線は不要 */
+        .page:last-child {
+            border-bottom: none;
+            margin-bottom: 20px;
         }
         
         /* 印刷時のみ、overflow:hidden を解除しないと、逆に印刷されない部分が出るブラウザもあるが、
