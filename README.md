@@ -60,7 +60,7 @@ open construction-site-entry-standards-proposal.html
 
 ## 📞 お問い合わせ先
 
-**株式会社ホロスプランニング 大阪オフィス**
+**株式会社ホロスプランニング**
 
 - 担当: 白石紀明（しらいし のりあき）
 - E-mail: noriaki_shiraishi@holos.jp
