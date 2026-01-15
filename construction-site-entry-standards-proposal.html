@@ -473,17 +473,7 @@
             margin: 14px 0;     /* ステップ以降に合わせる */
         }
 
-        .timeline {
-             margin: 10px 0; /* ステップ以降に合わせる */
-        }
-
-        .timeline-item {
-            margin: 10px 0; /* ステップ以降に合わせる */
-        }
-        
-        .timeline-item p {
-            margin: 4px 0; /* ステップ以降に合わせる */
-        }
+        /* .timeline 関連のスタイルは削除し、steps-grid を再利用する */
 
         .steps-section {
             padding: 14px 20px; /* さらに削減 */
@@ -499,6 +489,12 @@
              padding: 12px;     /* さらに削減 */
         }
         
+        .step-number {
+            color: var(--text-secondary);
+            margin-right: 6px;
+            font-weight: bold;
+        }
+
         .step-item p {
             margin-top: 4px;
             font-size: 13px;
@@ -776,17 +772,17 @@
     
     <div class="timeline-section">
         <h2>1. 2026年を見据えた準備タイムライン</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <strong>まずは：ご相談・リスク診断・見積もり</strong>
+        <div class="steps-grid">
+            <div class="step-item">
+                <span class="step-number">◎</span><strong>まずは：ご相談・リスク診断・見積もり</strong>
                 <p>御社の現在の保険加入状況・安全管理体制を確認し、2026年以降を見据えた必要補償の洗い出しと概算見積もりを行います。</p>
             </div>
-            <div class="timeline-item">
-                <strong>即日～約1週間：保険設計・加入手続き</strong>
+            <div class="step-item">
+                <span class="step-number">◎</span><strong>即日～約1週間：保険設計・加入手続き</strong>
                 <p>建設工事保険・賠償責任保険・労災上乗せ保険を、御社の事業内容に合わせて最適な形に設計し、加入手続きを進めます。</p>
             </div>
-            <div class="timeline-item">
-                <strong>2026年：安心して現場入場・基準クリアへ</strong>
+            <div class="step-item">
+                <span class="step-number">◎</span><strong>2026年：安心して現場入場・基準クリアへ</strong>
                 <p>発注者・元請からの入場要件提示にも、余裕をもって対応できます。事故発生時にも、事前に整えた補償に基づき、落ち着いて対応できます。</p>
             </div>
         </div>
