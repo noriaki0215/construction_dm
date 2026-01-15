@@ -84,17 +84,6 @@
              }
         }
 
-        /* 印刷時の改ページ設定 */
-    @media print {
-        .page-break-before {
-            page-break-before: always;
-            break-before: page;
-            border-top: none !important;
-            margin-top: 0 !important;
-            padding-top: 0 !important;
-        }
-    }
-
     /* === メンフィス風装飾要素 === */
         .page::before {
             content: '';
@@ -611,9 +600,11 @@
         <p>これまで建設業許可さえあれば現場で仕事ができた時代は終わりを告げようとしています。新しい基準では、<span class="highlight">適切な保険加入と安全管理体制の整備が必須</span>となり、これらを満たさない企業は、たとえ建設業許可を持っていても現場に入ることができなくなります。</p>
         <p>本冊子では、2026年から変わる現場入場基準について、国土交通省・東京労働局の公式資料および実際の事故事例データをもとに、重要な情報をお届けします。</p>
     </div>
-    
+</div>
+
+<div class="page">
     <!-- 旧2ページ目：問題提起+データ（1ページ目に統合） -->
-    <h1 class="page-break-before" style="margin-top: 50px; border-top: 2px dashed #e2e8f0; padding-top: 40px;">2026年、建設現場のルールが変わります</h1>
+    <h1 style="margin-top: 0; border-top: none; padding-top: 0;">2026年、建設現場のルールが変わります</h1>
 
     <h2>1. 法令・基準の変更点：何が求められるのか</h2>
     
