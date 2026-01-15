@@ -84,7 +84,18 @@
              }
         }
 
-        /* === メンフィス風装飾要素 === */
+        /* 印刷時の改ページ設定 */
+    @media print {
+        .page-break-before {
+            page-break-before: always;
+            break-before: page;
+            border-top: none !important;
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
+    }
+
+    /* === メンフィス風装飾要素 === */
         .page::before {
             content: '';
             position: absolute;
@@ -602,7 +613,7 @@
     </div>
     
     <!-- 旧2ページ目：問題提起+データ（1ページ目に統合） -->
-    <h1 style="margin-top: 50px; border-top: 2px dashed #e2e8f0; padding-top: 40px;">2026年、建設現場のルールが変わります</h1>
+    <h1 class="page-break-before" style="margin-top: 50px; border-top: 2px dashed #e2e8f0; padding-top: 40px;">2026年、建設現場のルールが変わります</h1>
 
     <h2>1. 法令・基準の変更点：何が求められるのか</h2>
     
