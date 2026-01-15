@@ -84,7 +84,18 @@
              }
         }
 
-        /* === メンフィス風装飾要素 === */
+        /* 印刷時の改ページ設定 */
+    @media print {
+        /* 指定した見出しの前で必ず改ページする */
+        .page-break-before {
+            page-break-before: always;
+            break-before: page;
+            /* 印刷時は区切り線を消す */
+            border-top: none !important;
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
+    }
         .page::before {
             content: '';
             position: absolute;
@@ -602,7 +613,7 @@
     </div>
     
     <!-- 旧2ページ目：問題提起+データ（1ページ目に統合） -->
-    <h1 style="margin-top: 50px; border-top: 2px dashed #e2e8f0; padding-top: 40px;">2026年、建設現場のルールが変わります</h1>
+    <h1 class="page-break-before" style="margin-top: 50px; border-top: 2px dashed #e2e8f0; padding-top: 40px;">2026年、建設現場のルールが変わります</h1>
 
     <h2>1. 法令・基準の変更点：何が求められるのか</h2>
     
@@ -687,7 +698,7 @@
     </div>
     
     <!-- 旧3ページ目：保険1-2（2ページ目に統合） -->
-    <h1 style="margin-top: 40px; border-top: 2px dashed #e2e8f0; padding-top: 30px;">必要なのは、この3つの保険です</h1>
+    <h1 class="page-break-before" style="margin-top: 40px; border-top: 2px dashed #e2e8f0; padding-top: 30px;">必要なのは、この3つの保険です</h1>
     
     <p style="font-size: 14px; margin-bottom: 25px;">
         2026年基準をクリアし、万が一の事故からも会社を守るために、<strong>最低限、次の3つの損害保険をセットで備えておくことが重要</strong>です。
@@ -755,7 +766,7 @@
     </div>
 
     <!-- 旧5ページ目：行動喚起・クロージング（4ページ目に統合） -->
-    <h1 style="margin-top: 40px; border-top: 2px dashed #e2e8f0; padding-top: 30px;">今から準備すれば、間に合います</h1>
+    <h1 class="page-break-before" style="margin-top: 40px; border-top: 2px dashed #e2e8f0; padding-top: 30px;">今から準備すれば、間に合います</h1>
 
     <div class="timeline-section">
         <h2>2026年を見据えた準備タイムライン</h2>
